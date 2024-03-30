@@ -1,0 +1,36 @@
+{
+  "name": "ngx-razorpay",
+  "version": "0.0.1",
+  "description": "Angular library for integrating the Razorpay payment gateway.",
+  "peerDependencies": {
+    "@angular/common": "^16.2.0",
+    "@angular/core": "^16.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiv-source/ngx-razorpay.git"
+  },
+  "private": false,
+  "keywords": [
+    "ngx-razorpay",
+    "razorpay",
+    "angular"
+  ],
+  "author": {
+    "name": "Shiv Kumar",
+    "email": "hello@shivkumar.me",
+    "url": "https://shivkumar.me"
+  },
+  "bugs": {
+    "url": "https://github.com/shiv-source/ngx-razorpay/issues"
+  },
+  "homepage": "https://github.com/shiv-source/ngx-razorpay#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

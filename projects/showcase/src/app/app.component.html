@@ -1,0 +1,11 @@
+<h1>Ngx Razorpay</h1>
+
+<ngx-razorpay
+[key]="key"
+[amount]="amount"
+[businessName]="businessName"
+[orderId]="orderId"
+(paymentFailedEvent)="paymentFailedEvent($event)"
+(paymentSuccessEvent)="paymentSuccessEvent($event)"
+></ngx-razorpay>
+
