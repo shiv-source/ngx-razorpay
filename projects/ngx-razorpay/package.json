@@ -1,6 +1,6 @@
 {
   "name": "ngx-razorpay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular library for integrating the Razorpay payment gateway.",
   "peerDependencies": {
     "@angular/common": "^16.2.0",

@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/shiv-source/ngx-razorpay/compare/v1.0.0...v1.0.1) (2024-03-31)
+
+
+### Bug Fixes
+
+* fixed few minor bugs related to ngOnchanges and some ts return types ([a6546d8](https://github.com/shiv-source/ngx-razorpay/commit/a6546d801f10edb1c7293466e4e735e0669b0ff6))
+
 # 1.0.0 (2024-03-30)
 
 
