@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, PLATFORM_ID, Renderer2, TemplateRef } from '@angular/core'
+import { Component, EventEmitter, Inject, Input, OnChanges, OnDestroy, OnInit, Output, PLATFORM_ID, Renderer2, SimpleChanges, TemplateRef } from '@angular/core'
 import { isPlatformBrowser } from '@angular/common'
 import { PaymentOptions } from './razorpay.interface'
 import { PaymentMethod } from './ngx-razorpay.types'
@@ -39,7 +39,7 @@ declare var Razorpay: any
     `
   ],
 })
-export class NgxRazorpayComponent implements OnInit, OnDestroy {
+export class NgxRazorpayComponent implements OnInit, OnChanges, OnDestroy {
   @Input({ required: true }) key: string = ''
   @Input({ required: true }) amount: number = 100
   @Input({ required: true }) businessName: string = ''
@@ -163,13 +163,19 @@ export class NgxRazorpayComponent implements OnInit, OnDestroy {
     }
   }
 
-  initializeRazorpay() {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.rzp) {
+      this.initializeRazorpay()
+    }
+  }
+
+  initializeRazorpay(): void {
     this.rzp = new Razorpay(this.options)
     this.rzp.on('payment.success', (response: any) => this.paymentSuccessEvent.emit(response))
     this.rzp.on('payment.failed', (response: any) => this.paymentFailedEvent.emit(response))
   }
 
-  loadScript(src: string) {
+  loadScript(src: string): void {
     const script: HTMLScriptElement = this.renderer.createElement('script');
     script.type = 'text/javascript'
     script.src = src
@@ -181,11 +187,11 @@ export class NgxRazorpayComponent implements OnInit, OnDestroy {
   isScriptAlreadyLoaded(src: string): boolean {
     const scripts: HTMLCollectionOf<HTMLScriptElement> = document.getElementsByTagName('script');
     const scriptArray: HTMLScriptElement[] = Array.from(scripts);
-    const sourceUrls = scriptArray.map((script) => script.src)
+    const sourceUrls: string[] = scriptArray.map((script) => script.src)
     return sourceUrls.includes(src)
   }
 
-  onPay() {
+  onPay(): void {
     if (this.rzp) {
       this.rzp.open()
     }
